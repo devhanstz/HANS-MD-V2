@@ -75,7 +75,7 @@ const {
   atbverifierEtatJid,
   atbrecupererActionJid
 } = require("./bdd/antibot");
-let evt = require(__dirname + "/HansTz/hans");
+let evt = require(__dirname + "/Hanstz/hans");
 const {
   isUserBanned,
   addUserToBanList,
@@ -91,10 +91,10 @@ const {
   addGroupToOnlyAdminList,
   removeGroupFromOnlyAdminList
 } = require("./bdd/onlyAdmin");
-//const //{loadCmd}=require("/HansTz/mesfonctions")
+//const //{loadCmd}=require("/Hanstz/mesfonctions")
 let {
   reagir
-} = require(__dirname + "/HansTz/app");
+} = require(__dirname + "/Hanstz/app");
 var session = conf.session.replace(/HANS-MD;;;=>/g, "");
 const prefixe = conf.PREFIXE || [];
 
@@ -209,7 +209,7 @@ if (conf.AUTOBIO === 'yes') {
     setInterval(() => {
       const date = new Date();
       zk.updateProfileStatus(
-        `Hans-Xmd-and-my-Owner-user${conf.OWNER_NAME} is active 24/7 ${date.toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })} It's a ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Nairobi' })}.`
+        `Hans-Md and My Owner${conf.OWNER_NAME} is online 24/7 ${date.toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })} It's a ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Nairobi' })}.`
       );
     }, 10 * 1000);
   }
@@ -227,7 +227,7 @@ zk.ev.on("messages.upsert", async (m) => {
   const senderNumber = remoteJid.split('@')[0];
 
   // Default auto-reply message
-  let auto_reply_message = `Hello @${senderNumber}, my Name is hans-xmd my owner is an unavailable but don't warning am here to help you.`;
+  let auto_reply_message = `Hello @${senderNumber}, my owner is unavailable right now. Kindly leave a message.`;
 
   // Check if the message exists and is a command to set a new auto-reply message
   if (messageText.startsWith('>') && ms.key.fromMe) {
@@ -258,9 +258,9 @@ zk.ev.on("messages.upsert", async (m) => {
     // Function to format notification message
 function createNotification(deletedMessage) {
   const deletedBy = deletedMessage.key.participant || deletedMessage.key.remoteJid;
-  let notification = `*⚠️HANS-MD ANTIDELETE👿*\n\n`;
-  notification += `*Time deleted⌚:* ${new Date().toLocaleString()}\n`;
-  notification += `*Deleted by🤦‍♂️:* @${deletedBy.split('@')[0]}\n\n*Powered by HansTz*\n\n`;
+  let notification = `*🎃HANS-MD ANTIDELETE🎃*\n\n`;
+  notification +=   `*Time deleted⌚:* ${new Date().toLocaleString()}\n`;
+  notification +=   `*Deleted by🤦‍♂️:* @${deletedBy.split('@')[0]}\n\n. *Powered by HansTz*\n\n`;
   return notification;
 }
 
@@ -373,7 +373,7 @@ zk.ev.on("messages.upsert", async m => {
       // Function to format notification message
 function createNotification(deletedMessage) {
   const deletedBy = deletedMessage.key.participant || deletedMessage.key.remoteJid;
-  let notification = `*⚠️HANS-MD ANTIDELETE👿*\n\n`;
+  let notification = `*🎃 HANS-MD ANTIDELETE 🎃*\n\n`;
   notification += `*Time deleted⌚:* ${new Date().toLocaleString()}\n`;
   notification += `*Deleted by🤦‍♂️:* @${deletedBy.split('@')[0]}\n\n*Powered by HansTz*\n\n`;
   return notification;
@@ -483,7 +483,6 @@ zk.ev.on("messages.upsert", async m => {
   }
 });
     
-
 const isAnyLink = (message) => {
     // Regex pattern to detect any link
     const linkPattern = /https?:\/\/[^\s]+/;
@@ -545,6 +544,7 @@ zk.ev.on('messages.upsert', async (msg) => {
 });
 
 
+
 // AUTO_REACT: React to messages with random emoji if enabled.
 if (conf.AUTO_REACT === "yes") {
   zk.ev.on("messages.upsert", async m => {
@@ -604,7 +604,7 @@ if (conf.AUTO_LIKE_STATUS === "yes") {
             if (message.key && message.key.remoteJid === "status@broadcast") {
                 console.log("Detected status update from:", message.key.remoteJid);
 
-                // Ensure throttling by checking the last reaction time
+                // Ensure throttling by chechans the last reaction time
                 const now = Date.now();
                 if (now - lastReactionTime < 5000) {  // 5-second interval
                     console.log("Throttling reactions to prevent overflow.");
@@ -797,7 +797,7 @@ if (conf.AUTO_LIKE_STATUS === "yes") {
       
       if (! superUser && origineMessage === auteurMessage && conf.AUTO_BLOCK === 'yes') {
         zk.sendMessage(auteurMessage, {
-          'text': "🚫am blocking you because you have violated hans policies🚫!"
+          'text': "🚫am blochans you because you have violated hans policies🚫!"
         });
         await zk.updateBlockStatus(auteurMessage, 'block');
       }
@@ -859,7 +859,7 @@ zk.ev.on("messages.upsert", async (m) => {
 
       if (texte && texte.startsWith('<')) {
   if (!superUser) {
-    return repondre("Only for my owner or HansTz to execute this command 🚫");
+    return repondre("Only for my owner or hanstz to execute this command 🚫");
   }
   
   try { 
@@ -885,7 +885,7 @@ if (texte && texte.startsWith('>')) {
           title: conf.BOT,
           body: "Regards HansTz",
           sourceUrl: conf.GURL,
-          thumbnailUrl: "https://files.catbox.moe/em4h5i.jpg" || conf.BOT_MENU_LINK,
+          thumbnailUrl: "https://telegra.ph/file/100f2a13f5a8a89dcba3d.jpg" || conf.BOT_MENU_LINK,
           mediaType: 1,
           showAdAttribution: true,
           renderLargerThumbnail: false
@@ -1233,7 +1233,7 @@ if (texte && texte.startsWith('>')) {
             /******************* PM_PERMT***************/
 
             if (!superUser && origineMessage === auteurMessage && conf.PM_PERMIT === "yes") {
-              repondre("SORRY!! ❌\n\nYou don't have acces to commands here idiot");
+              repondre("Sorry!! ❌\n\nYou don't have acces to commands here idiot");
               return;
             }
             ///////////////////////////////
@@ -1290,7 +1290,7 @@ if (texte && texte.startsWith('>')) {
       try {
         ppgroup = await zk.profilePictureUrl(group.id, 'image');
       } catch {
-        ppgroup = 'https://files.catbox.moe/em4h5i.jpg';
+        ppgroup = 'https://files.catbox.moe/9mcdru.jpg';
       }
       try {
         const metadata = await zk.groupMetadata(group.id);
@@ -1424,7 +1424,7 @@ if (texte && texte.startsWith('>')) {
         console.log("ℹ️ Hans md connecting in your account...");
       } else if (connection === 'open') {
         
-        console.log("✅ Hans md connected successfully✔");
+        console.log("✅ Hans Md connected successfully✔");
         console.log("--");
         0;
         await baileys_1.delay(200);
@@ -1439,7 +1439,7 @@ if (texte && texte.startsWith('>')) {
           if (path.extname(fichier).toLowerCase() == ".js") {
             try {
               require(__dirname + "/commands/" + fichier);
-              console.log(fichier + "Successfully installed Hans md commands✔️");
+              console.log(fichier + "Successfully installed Hans Md commands✔️");
             } catch (e) {
               console.log(`${fichier} n'a pas pu être chargé pour les raisons suivantes : ${e}`);
             } /* require(__dirname + "/commands/" + fichier);
@@ -1482,13 +1482,15 @@ const getGreeting = () => {
         if (conf.DP.toLowerCase() === 'yes') {
           await zk.sendMessage(zk.user.id, {
             text: `
- *Hello👋, ${getGreeting()},*
-╭════⊷
-║ *『 ${conf.BOT} 𝐢𝐬 𝐎𝐧𝐥𝐢𝐧𝐞』*
-║    Creator: *${conf.OWNER_NAME}*
-║    Prefix : [  ${prefixe} ]
-║    Mode : ${md} mode
-║    Total Commands : ${evt.cm.length}
+╭═════════════════⊷
+║    *Hello👋, ${getGreeting()},*
+║═════════════════⊷
+║*『 𝐇𝐀𝐍𝐒-𝐌𝐃 𝐈𝐒 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃』*
+║═════════════════⊷
+║ Creator: *${conf.OWNER_NAME}*
+║ Prefix : [  ${prefixe} ]
+║ Mode : ${md} mode
+║ Total Commands : ${evt.cm.length}
 ╰═════════════════⊷
  `
           });
