@@ -209,7 +209,7 @@ if (conf.AUTOBIO === 'yes') {
     setInterval(() => {
       const date = new Date();
       zk.updateProfileStatus(
-        `Hans-Md and My Owner${conf.OWNER_NAME} is online 24/7 ${date.toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })} It's a ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Nairobi' })}.`
+        `${conf.OWNER_NAME} is online 24/7 ${date.toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })} It's a ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Nairobi' })}.`
       );
     }, 10 * 1000);
   }
@@ -1424,7 +1424,7 @@ const getGreeting = () => {
           await zk.sendMessage(zk.user.id, {
             text: `
 ╭═════════════════⊷
-║    *Hello👋, ${getGreeting()},*
+║  *Hello👋, ${getGreeting()},*
 ║═════════════════⊷
 ║*『 𝐇𝐀𝐍𝐒-𝐌𝐃 𝐈𝐒 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃』*
 ║═════════════════⊷
